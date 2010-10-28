@@ -14,11 +14,23 @@ Screw.Unit(function() {
       delete(lat);
       delete(lng);
       delete(msg);
+      navigator.geolocation = {}
       navigator.geolocation.getCurrentPosition = function(success, failure) {
         successResponse = success;
         failureResponse = failure;
       }
     });
+
+    it("returns true when geolocation is available in browser", function() {
+      expect($.getLocation({})).to(be_true);
+    });
+
+    it("returns false when geolocation is not available in browser")
+    // Difficult to test...
+    // function() {
+    //   navigator.geolocation = false
+    //   expect($.getLocation({})).to(be_false);
+    // }
 
     it("triggers success callback", function() {
       $.getLocation({

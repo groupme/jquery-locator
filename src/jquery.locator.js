@@ -8,6 +8,8 @@
   }
 
   $.getLocation = function(options) {
+    if (!navigator.geolocation) { return false; }
+
     function successHandler(location) {
       options.success(location);
     }
@@ -23,5 +25,6 @@
     }
 
     navigator.geolocation.getCurrentPosition(successHandler, failureHandler);
+    return true;
   }
 })(jQuery)

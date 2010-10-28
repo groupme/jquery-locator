@@ -1,4 +1,19 @@
-# jquery-locator
+# jQuery Locator
+
+A simple wrapper around HTML5 location stuff. Probably doesn't even need jQuery.
+
+## Usage
+
+Call `$.getLocation`, specifying your callbacks.
+
+    $.getLocation({
+      success: function(location) {},
+      timeout: function(message) {},
+      unavailable: function(message) {},
+      permissionDenied: function(message) {},
+      unknownError: function(message) {}
+    });
+
 
 (c) Copyright 2010 patnakajima
 

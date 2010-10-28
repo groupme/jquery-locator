@@ -13,8 +13,13 @@
     }
 
     function failureHandler(code, message) {
-      var handler = ERRORS[code];
-      options[handler](message);
+      handler = ERRORS[code];
+      if (callback = options[handler]) {
+        callback(message);
+      } else {
+        alert("Location attempt failed: " + handler);
+      }
+
     }
 
     navigator.geolocation.getCurrentPosition(successHandler, failureHandler);
